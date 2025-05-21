@@ -37,4 +37,7 @@ public class PreguntaService {
         return preguntaRepository.findAll();
     }
 
+    public List<Pregunta>getAllPreguntasTema(int tema){
+        return preguntaRepository.findByTema(tema);
+    };
 }
