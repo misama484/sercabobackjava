@@ -2,20 +2,22 @@ package com.sercabo.backend;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class testDB {
     public static void main(String[] args) {
-        try {
-            String url = "jdbc:postgresql://zcanqqpbfnekmfvwosww.supabase.co:5432/postgres?sslmode=require";
-            String user = "postgres";
-            String password = "Rockola2postgres";
+        String url = "jdbc:postgresql://zcanqqpbfnekmfvwosww.supabase.co:5432/postgres?sslmode=require";
+        String user = "postgres";
+        String password = "Rockola2postgres";
 
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected successfully!");
-            conn.close();
-        } catch (Exception e) {
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            System.out.println("✅ Conexión exitosa a Supabase");
+        } catch (SQLException e) {
+            System.out.println("❌ Error de conexión:");
             e.printStackTrace();
         }
     }
 }
+
+
 
