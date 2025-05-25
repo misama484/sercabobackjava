@@ -36,7 +36,7 @@ public class AuthService {
 
     public Usuario register(String email, String nombre, String password) {
         // Verificar si el usuario ya existe
-        if (usuarioRepo.existByEmail(email != null)) {
+        if (usuarioRepo.existsByEmail(email)) {
             throw new RuntimeException("El usuario ya existe");
         }
 
