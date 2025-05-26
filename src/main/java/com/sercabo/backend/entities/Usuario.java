@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     private String nombre;
     private String email;
@@ -19,7 +19,7 @@ public class Usuario {
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro = LocalDateTime.now();
 
-    public Usuario(String id, String nombre, String email, String passwordHash) {
+    public Usuario(Long id, String nombre, String email, String passwordHash) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
@@ -30,11 +30,11 @@ public class Usuario {
         // Constructor por defecto necesario para JPA
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

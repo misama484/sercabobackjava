@@ -16,7 +16,7 @@ public class Pregunta {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String pregunta;
 
     @Column(name = "respuesta_correcta")

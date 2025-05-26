@@ -16,6 +16,7 @@ public class ExamenGenerado {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     private int tema;
