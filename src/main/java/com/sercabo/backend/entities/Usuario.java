@@ -70,6 +70,7 @@ public class Usuario {
         this.fechaRegistro = fechaRegistro;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,5 +82,15 @@ public class Usuario {
     @Override
     public int hashCode() {
         return Objects.hash(getEmail(), getPasswordHash());
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", fechaRegistro=" + fechaRegistro +
+                '}';
     }
 }
