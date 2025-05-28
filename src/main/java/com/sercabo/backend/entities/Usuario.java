@@ -1,6 +1,8 @@
 package com.sercabo.backend.entities;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import org.hibernate.cache.spi.entry.StructuredCacheEntry;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -15,15 +17,18 @@ public class Usuario {
     private String nombre;
     private String email;
     private String passwordHash;
+    @Column(nullable = false, columnDefinition = "integer default 0")
+    private int avatarCode = 0;
 
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro = LocalDateTime.now();
 
-    public Usuario(Long id, String nombre, String email, String passwordHash) {
+    public Usuario(Long id, String nombre, String email, String passwordHash, int avatarCode) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.passwordHash = passwordHash;
+        this.avatarCode = avatarCode;
     }
 
     public Usuario() {
@@ -68,6 +73,12 @@ public class Usuario {
 
     public void setFechaRegistro(LocalDateTime fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+    public int getAvatarCode() {
+        return avatarCode;
+    }
+    public void setAvatarCode(int avatarCode) {
+        this.avatarCode = avatarCode;
     }
 
 

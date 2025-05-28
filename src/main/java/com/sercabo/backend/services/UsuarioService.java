@@ -23,4 +23,7 @@ public class UsuarioService {
     public Usuario getUsuarioById(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
+    public Usuario getUsuarioByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
 }
