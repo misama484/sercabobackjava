@@ -1,10 +1,12 @@
 package com.sercabo.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import org.hibernate.cache.spi.entry.StructuredCacheEntry;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,6 +21,10 @@ public class Usuario {
     private String passwordHash;
     @Column(nullable = false, columnDefinition = "integer default 0")
     private int avatarCode = 0;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
+    private List<ExamenGenerado> examenes;
 
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro = LocalDateTime.now();

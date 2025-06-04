@@ -1,5 +1,6 @@
 package com.sercabo.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -29,6 +30,7 @@ public class ExamenGenerado {
     private boolean completado = false;
 
     @OneToMany(mappedBy = "examen", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<PreguntaExamen> preguntas = new ArrayList<>();
 
     // Getters and Setters

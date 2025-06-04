@@ -47,5 +47,18 @@ public class ExamenService {
         examen.setPreguntas(preguntasExamen);
 
         return examenRepo.save(examen);
-    };
+    }
+
+    ;
+
+    public ExamenGenerado getExamenById(Long id) {
+        return examenRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Examen no encontrado con ID: " + id));
+    }
+
+    public List<ExamenGenerado> getAllExamenesByUsuario(Long usuarioId) {
+        Usuario usuario = usuarioRepo.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + usuarioId));
+        return examenRepo.findByUsuario(usuario);
+    }
 }

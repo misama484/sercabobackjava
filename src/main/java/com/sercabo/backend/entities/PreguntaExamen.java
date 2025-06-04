@@ -1,5 +1,6 @@
 package com.sercabo.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class PreguntaExamen {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference //anyadiendo esto evita el bucle infinito de serialización
     private ExamenGenerado examen;
 
     @ManyToOne
