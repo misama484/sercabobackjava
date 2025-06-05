@@ -22,7 +22,7 @@ public class ExamenController {
     public ResponseEntity<ExamenGenerado> generarExamen(
             @RequestParam Long usuarioId,
             @RequestParam int tema,
-            @RequestParam(defaultValue = "10") int cantidad
+            @RequestParam int cantidad
     ) {
         ExamenGenerado examen = examenService.generarExamen(usuarioId, tema, cantidad);
         return ResponseEntity.ok(examen);
