@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: backend
+  profiles:
+    active: prod
+jwt:
+  secret: VGhpcyBpcyBhIHZlcnkgc2VjdXJlIGtleSBmb3IgSlNPTldFQg==
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://aws-0-eu-west-2.pooler.supabase.com:5432/postgres
+    username: postgres.zcanqqpbfnekmfvwosww
+    password: Rockola2postgres # Reemplaza esto con la contraseña real
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
