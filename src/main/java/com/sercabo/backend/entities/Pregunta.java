@@ -12,9 +12,9 @@ import java.util.Map;
 public class Pregunta {
 
     @Id
-    @GeneratedValue(generator = "UUID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    private Long id;
 
     @Column(nullable = false, length = 1000)
     private String pregunta;
@@ -32,11 +32,11 @@ public class Pregunta {
 
     // Getters y Setters
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
